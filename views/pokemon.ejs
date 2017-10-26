@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Trainers</a></li>
-            <li><a href="#">Pokemon</a></li>
-            <li><a href="#">gym</a></li>
-            </ul>
-        </div>
+      <div class="nav-wrapper yellow darken-2">
+        <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="images/pokemon-logo.png"></a>
+        <ul id="navText" class="right hide-on-med-and-down">
+        <li><a href="#">TRAINERS</a></li>
+        <li><a href="#">POKEMON</a></li>
+        <li><a href="#">GYM</a></li>
+        </ul>
+      </div>
     </nav>
+<div class = "main">
     <div class = "selection">
         <div class = "container"> 
-    <table>
-        <thead>
-          <tr>
+         <table class = "highlight white">
+          <thead>
+            <tr>
               <th>id</th>
               <th>Name</th>
               <th>Trainer id</th>
@@ -50,12 +52,16 @@
           </tr>
           <%  }  %>
         </tbody>
-      </table>
+       </table>
+      </div>
     </div>
-</div>
-
-<button type="button" name="button" id="add_new">+ Add New Pokemon</button>
-
-</body>
-
+   
+    <div class = "selectio">
+        <div class= "container">
+            <button type="button" name="button" id="add_new">+ Add New Pokemon</button>
+        </div>
+     </div>
+    
+    </div>
+  </body>
 </html>
