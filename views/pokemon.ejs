@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Trainers</a></li>
+            <li><a href="#">Pokemon</a></li>
+            <li><a href="#">gym</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class = "selection">
+        <div class = "container"> 
+    <table>
+        <thead>
+          <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Trainer id</th>
+              <th>cp</th>
+              <th>in gym</th>
+              <th></th>
+              <th></th>
+              <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% for (let i=0; i<pokemon.length; i++){ %>
+          <tr>
+            <td><%= pokemon[i].id %></td>
+            <td><%= pokemon[i].name %></td>
+            <td><%= pokemon[i].trainer_id %></td>
+            <td><%= pokemon[i].cp %></td>
+            <td><%= pokemon[i].in_gym %></td>
+            <td><a href=""></a>Edit</td>
+            <td><a href="">Delete</a></td>
+          </tr>
+          <%  }  %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<button type="button" name="button" id="add_new">+ Add New Pokemon</button>
+
+</body>
+
+</html>
