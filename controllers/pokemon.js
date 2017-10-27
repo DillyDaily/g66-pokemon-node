@@ -70,6 +70,37 @@ module.exports = {
     })
   },
 
+  edit: function(req, res){
+    knex('pokemon')
+    .select('pokemon.name', 'trainers.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
+    .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
+    .where('pokemon.id', req.params.id)
+    .then((result)=>{
+      knex('pokemon')
+      // .where('pokemon.id', req.params.id)
+      .then((resultTwo)=>{
+        let poke = resultTwo[0];
+        res.render('editPokemon', {profile: result, pokemon: poke})
+      })
+    })
+  },
+
+  update: function(req, res){ 
+    knex('pokemon')
+    .update({
+      name: req.body.name,
+      trainer: req.body.trainer,
+      trainer_id: req.body.trainer_id
+    })
+    .where('id', req.params.id)
+    .then(()=> {
+      res.redirect('/pokemon/getOne/:id');
+    })
+    .catch((err)=>{
+      console.error(err)
+    })
+  },
+
   delete: function(req, res){
     knex('pokemon')
     .del()

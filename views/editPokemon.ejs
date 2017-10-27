@@ -9,6 +9,12 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">$(document).ready(function() {
+            Materialize.updateTextFields();
+          });</script>
+    <script type="text/javascript">$(document).ready(function() {
+    $('select').material_select();
+    });</script>
 </head>
 
 <body>
@@ -16,29 +22,39 @@
       <div class="nav-wrapper yellow darken-2">
         <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="../images/pokemon-logo.png"></a>
         <ul id="navText" class="right hide-on-med-and-down">
-        <li><a href="#">TRAINERS</a></li>
-        <li><a href="#">POKEMON</a></li>
-        <li><a href="#">GYM</a></li>
+            <li><a href="/trainers">TRAINERS</a></li>
+            <li><a href="/">POKEMON</a></li>
+            <li><a href="#">GYM</a></li>
         </ul>
       </div>
     </nav>
      
 <div class = "main">
     <div class = "selection">
-        <div class = "container"> 
-            <h1>Edit Your Pokemon</h1>
+        <div class = "container white"> 
+            <h1>Edit <%= pokemon.name %> </h1>
+        <!-- Dropdown Trigger -->
         <div class="row">
-            <form action="/pokemon/add" method="post" class="col s12 white">
-                <input type="text" name="name" placeholder="Pokemon Name">
-                <input type="number" name="trainer_id" placeholder="1-4">
-                <input type="number" name="cp" placeholder="CP">
-                <input type="text" name="in_gym" placeholder="true/false">
-                </select>
+          <div class="input-field col s6">  
+            <form action="/editPokemon/<%= profile.id %>" method="post" class="col s12">
+                <input type="text" name="cp" value= "<%= pokemon.cp %>" placeholder="Combat Power">
+                <input type="text" name="in_gym" value= "<%=  %>" placeholder="T/F">
+        
+                <select name="id">
+                    <option selected>Choose your trainer</option>
+                    <% for (let i=0; i<profile.length; i++){ %>
+                     
+                    <option value="<%= profile[i].id%>" selected><%= profile[i].name%> </option>
+                        
+                   
+                    <option value="<%= profile[i].id%>"><%= profile[i].name%> </option>
+                    <% } %>
                 
+                </select>
                 <input type="submit">
-              
-                </form>
-            </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     
