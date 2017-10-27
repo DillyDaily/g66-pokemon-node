@@ -9,18 +9,19 @@ var port = process.env.PORT || 8000;
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 require('./config/session.js')(app);
 app.set('view engine', 'ejs');
 
 var routes_setter = require('./config/routes.js');
 routes_setter(app);
 
-var expressLayouts = require('express-ejs-layouts');
+// var expressLayouts = require('express-ejs-layouts');
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
-app.use(expressLayouts);
+// app.use(expressLayouts);
 
 
 
@@ -31,6 +32,7 @@ app.use(logger('dev'));
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static('public'));
 
 
 // catch 404 and forward to error handler

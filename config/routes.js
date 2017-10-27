@@ -7,7 +7,10 @@ app.get('/', pokemon.index);
 
 app.get('/pokemon', pokemon.getAll);
 
-// app.post('/pokemon', pokemon.create);
+app.get('/pokemon/add', pokemon.addOne);
+
+app.post('/pokemon/add', pokemon.create);
+
 
 // app.get()
 
