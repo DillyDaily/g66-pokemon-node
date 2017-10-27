@@ -1,16 +1,63 @@
-<!-- DO NOT TOUCH LINE 3 ! This imports our HTML layout-->
-<!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
-<%- contentFor('body') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-<span style="color:white">Trainers home page.</span>
+<body>
+    <nav>
+      <div class="nav-wrapper yellow darken-2">
+        <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="../images/pokemon-logo.png"></a>
+        <ul id="navText" class="right hide-on-med-and-down">
+        <li><a href="#">TRAINERS</a></li>
+        <li><a href="/">POKEMON</a></li>
+        <li><a href="#">GYM</a></li>
+        </ul>
+      </div>
+    </nav>
+<div class = "main">
+    <div class = "selection">
+        <div class = "container"> 
+         <table class = "highlight white">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              
+          </tr>
+        </thead>
 
-<button type="button" name="button" id="add_new">+ Add New Trainer</button>
+        <tbody>
+        <% for (let i=0; i<trainers.length; i++){ %>
+          <tr>
+            <td><%= trainers[i].id %></td>
+            <td><a href="/trainers/<%= trainers[i].id %>"><%= trainers[i].name %></a></td>
+    
+          </tr>
+          <%  }  %>
+        </tbody>
+       </table>
 
-<script type="text/javascript">
-   var btn = document.getElementById("add_new");
-   var passedInData = '<%= passedInData %>' ;
-   btn.addEventListener("click", function(){
-     alert("the button works, and we see "+passedInData);
-   })
+ </div>
+    </div>
+    
+    </div>
+    <footer class="page-footer black">
+           
+            <div class="footer-copyright">
+              <div class="container">
+              © 2014 Copyright
+              </div>
+            </div>
+          </footer>
+              
+  </body>
+</html>
 
-</script>

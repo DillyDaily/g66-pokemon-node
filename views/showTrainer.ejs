@@ -16,29 +16,36 @@
       <div class="nav-wrapper yellow darken-2">
         <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="../images/pokemon-logo.png"></a>
         <ul id="navText" class="right hide-on-med-and-down">
-        <li><a href="#">TRAINERS</a></li>
-        <li><a href="#">POKEMON</a></li>
-        <li><a href="#">GYM</a></li>
+            <li><a href="/trainers">TRAINERS</a></li>
+            <li><a href="/">POKEMON</a></li>
+            <li><a href="#">GYM</a></li>
         </ul>
       </div>
     </nav>
      
 <div class = "main">
     <div class = "selection">
-        <div class = "container"> 
-            <h1>Trainer: <%= %></h1>
-        <div class="row">
-            <form action="/trainer/add" method="post" class="col s12 white">
-                <input type="text" name="name" placeholder="Pokemon Name">
-                <input type="number" name="trainer_id" placeholder="1-4">
-                <input type="number" name="cp" placeholder="CP">
-                <input type="text" name="in_gym" placeholder="true/false">
-                </select>
-                
-                <input type="submit">
-              
-                </form>
-            </div>
+        <div class = "container white"> 
+            <h1>Trainer: <%= trainerName.name %></h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trainer</th>
+                        <th>Combat Power</th>
+                        <th>In Gym</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i=0; i<display.length; i++){ %>
+                        <tr>
+                            <td><%= display[i].name %></td>
+                            <td><%= display[i].cp %></td>
+                            <td><%= display[i].in_gym %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
       </div>
     </div>
     

@@ -1,9 +1,33 @@
-var express = require('express');
-var router = express.Router();
+const knex = require("../db/knex.js");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('trainers/index', {passedInData: "xyz"});
-});
+module.exports = {
 
-module.exports = router;
+  getAll: function(req, res) {
+    knex('trainers')
+    .then((result)=>{
+      
+      res.render('trainers', {trainers: result});
+    })
+    .catch((err)=>{
+      console.error(err)
+    });
+  },
+
+  getOne: function(req,res) {
+    knex('trainers')
+    .select('trainers.name', 'pokemon.name', 'pokemon.cp', 'pokemon.in_gym')
+    .join('pokemon', 'pokemon.trainer_id', '=', 'trainers.id')
+    .where('trainers.id', req.params.id)
+    .then((result)=>{
+      knex('trainers')
+      .where('trainers.id', req.params.id)
+      .then((resultTwo)=>{
+        console.log(resultTwo)
+        res.render('showTrainer', {display: result, trainerName: resultTwo[0]})
+      })
+    })
+    .catch((err)=>{
+      console.error(err)
+    })
+  }
+}

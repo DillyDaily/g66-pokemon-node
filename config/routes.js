@@ -19,9 +19,9 @@ app.get('/deletePokemon/:id', pokemon.delete);
 
 // app.post('/editPokemon/:id', pokemon.update);
 
-// app.get('/trainers', trainers.getAll);
+app.get('/trainers', trainers.getAll);
 
-// app.get('/trainers/:id', trainers.getOne);
+app.get('/trainers/:id', trainers.getOne);
 
 
 
