@@ -61,19 +61,22 @@ module.exports = {
   },
 
   edit: function(req, res){
+    knex('trainers')
+    .then((getName)=>{
 
-    knex('pokemon')
-    .select('pokemon.name', 'trainers.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
-    .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
-    .where('pokemon.id', req.params.id)
-    .then((result)=>{
       knex('pokemon')
+      .select('pokemon.name', 'trainers.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
+      .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
       .where('pokemon.id', req.params.id)
-      .then((resultTwo)=>{
-        let poke = resultTwo[0];
-        let first = result[0];
-        console.log(resultTwo);
-        res.render('editPokemon', {profile: first, trainers: poke})
+      .then((result)=>{
+        knex('pokemon')
+        .where('pokemon.id', req.params.id)
+        .then((resultTwo)=>{
+          let poke = resultTwo[0];
+          let first = result[0];
+          console.log(getName);
+          res.render('editPokemon', {profile: first, trainers: poke, name:getName})
+        })
       })
     })
     // knex('trainers')

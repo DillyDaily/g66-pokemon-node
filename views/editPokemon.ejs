@@ -41,11 +41,13 @@
           <div class="input-field col s6">  
             <form action="/editPokemon/<%= profile.id %>" method="post" class="col s12 white">
         
-                <select name="id">
+                <select name="name.id">
                     <option selected>Choose your trainer</option>
-                    <% for (let i=0; i<trainers.length; i++){ %>
-                    <option value="<%= trainers[i].id%>" selected><%= trainers[i].name%> </option>
+                    <% for (let i=0; i<name.length; i++){ %>
+                     
+                    <option value="<%= name[i].id%>" selected><%= name[i].name%> </option>
                     <% } %>
+                   
                 </select>
                 <input type="text" name="cp" value= "Combat Power: <%= profile.cp %>" >
                 <input type="text" name="in_gym" value= "In Gym: <%= profile.in_gym %>" >
