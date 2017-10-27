@@ -38,6 +38,21 @@ module.exports = {
     });
   },
 
+  getOne: function(req,res){
+    knex('pokemon')
+      .select('pokemon.name', 'trainers.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
+      .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
+      .where('pokemon.id', req.params.id)
+      .then((result)=>{
+        knex('pokemon')
+        .where('pokemon.id', req.params.id)
+        .then((resultTwo)=>{
+          let poke = resultTwo[0];
+          res.render('showPokemon', {profile: result, pokemon: poke})
+        })
+      })
+  },
+
   create: function(req, res) {
     knex('pokemon')
     .insert({
@@ -46,12 +61,25 @@ module.exports = {
       cp: req.body.cp,
       in_gym: req.body.in_gym
     }, '*')
-    // console.log('wtf ' + req.body.id)
     .then((result)=>{
       res.redirect('/pokemon');
+      
     })
     .catch((err)=>{
       console.error(err)
     })
+  },
+
+  delete: function(req, res){
+    knex('pokemon')
+    .del()
+    .where('id', req.params.id)
+    .then(()=>{
+      res.redirect('/pokemon')
+    })
+    .catch((err)=>{
+      console.error(err)
+    });
   }
+
 }

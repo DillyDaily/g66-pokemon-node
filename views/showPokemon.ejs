@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <nav>
+      <div class="nav-wrapper yellow darken-2">
+        <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="/images/pokemon-logo.png"></a>
+        <ul id="navText" class="right hide-on-med-and-down">
+        <li><a href="#">TRAINERS</a></li>
+        <li><a href="#">POKEMON</a></li>
+        <li><a href="#">GYM</a></li>
+        </ul>
+      </div>
+    </nav>
+     
+<div class = "main">
+  <div class = "selection">
+    <div class = "container white"> 
+      <h1>Pokemon: <%= pokemon.name  %></h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trainer</th>
+                    <th>Combat Power</th>
+                    <th>In Gym</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i=0; i<profile.length; i++){ %>
+                    <tr>
+                        <td><%= profile[i].name %></td>
+                        <td><%= profile[i].cp %></td>
+                        <td><%= profile[i].in_gym %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+    
+    </div>
+    <footer class="page-footer black">
+           
+            <div class="footer-copyright">
+              <div class="container">
+              © 2014 Copyright
+              </div>
+            </div>
+          </footer>
+              
+  </body>
+</html>

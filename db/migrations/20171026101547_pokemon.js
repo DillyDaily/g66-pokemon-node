@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('pokemon', (table)=>{
-        table.increments('id');
+        table.increments();
         table.integer('trainer_id')
             .references('id')
             .inTable('trainers')

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pokemon</title>
+    <title>Edit Your Pokemon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -17,45 +17,28 @@
         <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="../images/pokemon-logo.png"></a>
         <ul id="navText" class="right hide-on-med-and-down">
         <li><a href="#">TRAINERS</a></li>
-        <li><a href="/">POKEMON</a></li>
+        <li><a href="#">POKEMON</a></li>
         <li><a href="#">GYM</a></li>
         </ul>
       </div>
     </nav>
+     
 <div class = "main">
     <div class = "selection">
         <div class = "container"> 
-         <table class = "highlight white">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>Name</th>
-              <th>Trainer id</th>
-              <th>cp</th>
-              <th>in gym</th>
-              <th></th>
-              <th></th>
-              <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-        <% for (let i=0; i<pokemon.length; i++){ %>
-          <tr>
-            <td><%= pokemon[i].id %></td>
-            <td><a href="/pokemon/getone/<%= pokemon[i].id %>"><%= pokemon[i].name %></a></td>
-            <td><%= pokemon[i].trainer_id %></td>
-            <td><%= pokemon[i].cp %></td>
-            <td><%= pokemon[i].in_gym %></td>
-            <td><a href="/editPokemon/<%= pokemon[i].id %>"></a>Edit</td>
-            <td><a href="/deletePokemon/<%= pokemon[i].id %>">Delete</a></td>
-          </tr>
-          <%  }  %>
-        </tbody>
-       </table>
-
-
-       <a class="waves-effect waves-light btn-large" href ="/pokemon/add">+Add A Pokemon</a>
+            <h1>Edit Your Pokemon</h1>
+        <div class="row">
+            <form action="/pokemon/add" method="post" class="col s12 white">
+                <input type="text" name="name" placeholder="Pokemon Name">
+                <input type="number" name="trainer_id" placeholder="1-4">
+                <input type="number" name="cp" placeholder="CP">
+                <input type="text" name="in_gym" placeholder="true/false">
+                </select>
+                
+                <input type="submit">
+              
+                </form>
+            </div>
       </div>
     </div>
     

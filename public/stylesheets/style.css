@@ -1,4 +1,7 @@
 .main{
     background-image: url("../images/ball_background_opaque.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
