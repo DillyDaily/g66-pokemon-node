@@ -1,6 +1,7 @@
 const pokemon = require("../controllers/pokemon.js");
 const trainers = require("../controllers/trainers.js");
-var express = require('express');
+const gym = require("../controllers/gym.js");
+
 module.exports = function(app){
 
 app.get('/', pokemon.index);
@@ -22,5 +23,7 @@ app.get('/editPokemon/:id', pokemon.edit);
 app.get('/trainers', trainers.getAll);
 
 app.get('/trainers/:id', trainers.getOne);
+
+app.get('/gym', gym.index);
 
 }

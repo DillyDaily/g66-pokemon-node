@@ -3,18 +3,8 @@ const knex = require("../db/knex.js");
 module.exports = {
 
   index: function(req, res) {
-    res.redirect('/pokemon');
+    res.redirect('/pokemon')
   },
-  // index: function(req, res) {
-  //   if(!req.session.user){
-  //     req.session.user = [];
-  //   }
-  //   knex('pokemon')
-  //   .then((results)=>{
-  //     res.redner()
-  //   })
-  //   res.redirect('/pokemon');
-  // },
 
   getAll: function(req, res) {
     knex('pokemon')
@@ -71,18 +61,35 @@ module.exports = {
   },
 
   edit: function(req, res){
+
     knex('pokemon')
     .select('pokemon.name', 'trainers.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
     .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
     .where('pokemon.id', req.params.id)
     .then((result)=>{
       knex('pokemon')
-      // .where('pokemon.id', req.params.id)
+      .where('pokemon.id', req.params.id)
       .then((resultTwo)=>{
         let poke = resultTwo[0];
-        res.render('editPokemon', {profile: result, pokemon: poke})
+        let first = result[0];
+        console.log(resultTwo);
+        res.render('editPokemon', {profile: first, trainers: poke})
       })
     })
+    // knex('trainers')
+    // .then((resultTwo)=>{
+    //   knex('pokemon')
+    //   .then((poke)=>{
+    // knex('pokemon')
+    // .select('pokemon.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
+    // .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
+    // .where('pokemon.id', req.params.id)
+    // .then((result)=>{
+    //   console.log(result.name)
+    //     res.render('editPokemon', {profile: result, trainers: resultTwo, poke:poke[0]})
+    //     })
+    //   })
+    // })
   },
 
   update: function(req, res){ 

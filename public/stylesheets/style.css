@@ -3,5 +3,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    margin: 0px;
+    padding: 0px;
+};
+
+.title{    
+    color: white;
 }
 

@@ -25,11 +25,13 @@
      
 <div class = "main">
   <div class = "selection">
-    <div class = "container white"> 
-      <h1>Pokemon: <%= pokemon.name %></h1>
-        <table>
+    <div class = "container"> 
+      
+      <table class="bordered white">
+         
             <thead>
                 <tr>
+                    <th>Pokemon: <%= pokemon.name %></th>
                     <th>Trainer</th>
                     <th>Combat Power</th>
                     <th>In Gym</th>
@@ -38,6 +40,7 @@
             <tbody>
                 <% for (let i=0; i<profile.length; i++){ %>
                     <tr>
+                        <td></td>
                         <td><%= profile[i].name %></td>
                         <td><%= profile[i].cp %></td>
                         <td><%= profile[i].in_gym %></td>
