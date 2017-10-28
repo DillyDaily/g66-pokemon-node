@@ -8,7 +8,9 @@ module.exports = {
         }
         knex('pokemon')
         .then((results)=>{
-        res.redner('gym', {pokemon: results, battle: req.session.battle})
+
+            console.log('battttttle  ' + req.session.battle)
+        res.render('gym', {pokemon: results, battle: req.session.battle})
         })
         .catch((err)=>{
             console.error(err)

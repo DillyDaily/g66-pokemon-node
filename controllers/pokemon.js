@@ -79,72 +79,7 @@ module.exports = {
         })
       })
     })
-    // knex('trainers')
-    // .then((resultTwo)=>{
-    //   knex('pokemon')
-    //   .then((poke)=>{
-    // knex('pokemon')
-    // .select('pokemon.name', 'pokemon.cp', 'pokemon.in_gym', 'trainers.id')
-    // .join('trainers', 'trainers.id', '=', 'pokemon.trainer_id')
-    // .where('pokemon.id', req.params.id)
-    // .then((result)=>{
-    //   console.log(result.name)
-    //     res.render('editPokemon', {profile: result, trainers: resultTwo, poke:poke[0]})
-    //     })
-    //   })
-    // })
   },
-
-  // update: function(req, res){ 
-  //   // knex('pokemon')
-  //   // .then((result)=>{
-  //   knex('pokemon')
-  //   .update({
-  //     trainer_id: req.body.id
-  //   })
-  //     .where('id', req.params.id)
-  //     .then(()=>{
-  //       // console.log(result.id)
-  //       // console.log(result)
-  //       res.redirect('/pokemon');
-  //     })
-  //     .catch((err)=>{
-  //       console.error(err)
-  //     // })
-  //   })
-  //   },
-
-  // update: function(req, res){ 
-  //   knex('pokemon')
-  //   .update({
-  //     trainer_id: req.body.trainer_id
-  //   })
-  //   .where('id', req.params.id)     
-      // .then(()=>{
-      //   res.redirect('/pokemon' );
-      // })
-    // },
-      // .catch((err)=>{
-      //   console.error(err)
-      
-    // },
-
-    // update: function(req, res){ 
-    //   knex('pokemon')
-    //   .update({
-    //     trainer_id: req.body.id
-    //   })
-       
-    //     // .update(req.body)
-    //     .where('id', req.params.id)
-    //     .then(()=>{
-    //       res.redirect('/pokemon/getOne/'+req.body.id);
-    //     })
-    //     .catch((err)=>{
-    //       console.error(err)
-    //     // })
-    //   })
-    //   },
 
   update: function(req,res){
       knex('pokemon')
@@ -156,8 +91,6 @@ module.exports = {
 
           res.redirect('/pokemon/getone/'+ req.body.id)
         })
-      
-    // })
     .catch((err)=>{
       console.error(err);
     })
