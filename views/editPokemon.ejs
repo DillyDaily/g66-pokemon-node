@@ -45,12 +45,14 @@
                     <option selected>Choose your trainer</option>
                     <% for (let i=0; i<name.length; i++){ %>
                      
-                    <option value="<%= name[i].id%>" selected><%= name[i].name%> - <%= name[i].id %> </option>
+                    <option value="<%= name[i].id%>" selected><%= name[i].name%>  <% name[i].id %> </option>
                     <% } %>
                    
                 </select>
                 <input type="text" name="cp" value= "<%= profile.cp %>" >
                 <input type="text" name="in_gym" value= "<%= profile.in_gym %>" >
+                <input type="number" name="id" value= "<%= trainers.id %>" >
+
                 <input type="submit">
             </form>
            </div>

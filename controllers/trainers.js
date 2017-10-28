@@ -22,7 +22,6 @@ module.exports = {
       knex('trainers')
       .where('trainers.id', req.params.id)
       .then((resultTwo)=>{
-        console.log(resultTwo)
         res.render('showTrainer', {display: result, trainerName: resultTwo[0]})
       })
     })

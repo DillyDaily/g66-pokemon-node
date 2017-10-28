@@ -74,7 +74,7 @@ module.exports = {
         .then((resultTwo)=>{
           let poke = resultTwo[0];
           let first = result[0];
-          console.log(getName);
+       
           res.render('editPokemon', {profile: first, trainers: poke, name:getName})
         })
       })
@@ -95,22 +95,73 @@ module.exports = {
     // })
   },
 
-  update: function(req, res){ 
-    knex('pokemon')
-    .update({
-      trainer_id: req.body.trainer
-    })
-     
-      // .update(req.body)
-      // .where('id', req.params.id)
-      .then(()=>{
-        res.redirect('/pokemon/getOne/'+req.params.id);
-      })
-      .catch((err)=>{
-        console.error(err)
+  // update: function(req, res){ 
+  //   // knex('pokemon')
+  //   // .then((result)=>{
+  //   knex('pokemon')
+  //   .update({
+  //     trainer_id: req.body.id
+  //   })
+  //     .where('id', req.params.id)
+  //     .then(()=>{
+  //       // console.log(result.id)
+  //       // console.log(result)
+  //       res.redirect('/pokemon');
+  //     })
+  //     .catch((err)=>{
+  //       console.error(err)
+  //     // })
+  //   })
+  //   },
+
+  // update: function(req, res){ 
+  //   knex('pokemon')
+  //   .update({
+  //     trainer_id: req.body.trainer_id
+  //   })
+  //   .where('id', req.params.id)     
+      // .then(()=>{
+      //   res.redirect('/pokemon' );
       // })
+    // },
+      // .catch((err)=>{
+      //   console.error(err)
+      
+    // },
+
+    // update: function(req, res){ 
+    //   knex('pokemon')
+    //   .update({
+    //     trainer_id: req.body.id
+    //   })
+       
+    //     // .update(req.body)
+    //     .where('id', req.params.id)
+    //     .then(()=>{
+    //       res.redirect('/pokemon/getOne/'+req.body.id);
+    //     })
+    //     .catch((err)=>{
+    //       console.error(err)
+    //     // })
+    //   })
+    //   },
+
+  update: function(req,res){
+      knex('pokemon')
+      .update({
+        trainer_id: req.body.trainer
+      })
+        .where('id', req.body.id)
+        .then(()=>{
+
+          res.redirect('/pokemon/getone/'+ req.body.id)
+        })
+      
+    // })
+    .catch((err)=>{
+      console.error(err);
     })
-    },
+  },
 
   delete: function(req, res){
     knex('pokemon')
