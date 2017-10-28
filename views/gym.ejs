@@ -30,18 +30,49 @@
 
     <div class = "main">
       <div class = "selection">
-        <div class = "container"> 
+        <div class = "container white"> 
           <h1>Welcome to the Gym </h1>
 
-  <% for (let i = 0; i<pokemon.length; i++) {   %>
+       <div class = "menus">
+             <form action="/#/<%= pokemon.id %>" method="post" class="col m4 white">
+            
+                <select name="battle1">
+                    <option selected>Pokemon 1</option>
+                    <% for (let i=0; i<pokemon.length; i++){ %>
+                      
+                    <option value="<%= pokemon[i].id%>" ><%= pokemon[i].name%>  <% pokemon[i].id %> </option>
+                    <% } %>
+                    
+                </select>
+                
+                <input type="submit">
+            </form>
+        </div>
 
-    <p> <%= pokemon.name %> </p>    
-
-  <% }  %>
-
+              <div class = "menus">
+                 <form action="/#/<%= pokemon.id %>" method="post" class="col m4 offset-7 white">
+              
+                  <select name="battle2">
+                      <option selected>Pokemon 2</option>
+                      <% for (let i=0; i<pokemon.length; i++){ %>
+                        
+                      <option value="<%= pokemon[i].id%>" ><%= pokemon[i].name%>  <% pokemon[i].id %> </option>
+                      <% } %>
+                      
+                  </select>
+                  
+                  <input type="submit">
+              </form>
+            </div>
+          
        </div>
     </div>
   </div>
+
+<div>
+  
+</div>
+
 <footer class="page-footer black">
     
      <div class="footer-copyright">

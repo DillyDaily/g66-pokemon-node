@@ -38,14 +38,14 @@
           
         <!-- Dropdown Trigger -->
         <div class="row">
-          <div class="input-field col s6">  
+          <div class="input-field col s12">  
             <form action="/editPokemon/<%= profile.id %>" method="post" class="col s12 white">
         
                 <select name="trainer">
                     <option selected>Choose your trainer</option>
                     <% for (let i=0; i<name.length; i++){ %>
                      
-                    <option value="<%= name[i].id%>" selected><%= name[i].name%>  <% name[i].id %> </option>
+                    <option value="<%= name[i].id%>" ><%= name[i].name%>  <% name[i].id %> </option>
                     <% } %>
                    
                 </select>
