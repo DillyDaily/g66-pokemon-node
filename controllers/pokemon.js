@@ -98,18 +98,19 @@ module.exports = {
   update: function(req, res){ 
     knex('pokemon')
     .update({
-      name: req.body.name,
-      trainer: req.body.trainer,
-      trainer_id: req.body.trainer_id
+      trainer_id: req.body.trainer
     })
-    .where('id', req.params.id)
-    .then(()=> {
-      res.redirect('/pokemon/getOne/:id');
+     
+      // .update(req.body)
+      // .where('id', req.params.id)
+      .then(()=>{
+        res.redirect('/pokemon/getOne/'+req.params.id);
+      })
+      .catch((err)=>{
+        console.error(err)
+      // })
     })
-    .catch((err)=>{
-      console.error(err)
-    })
-  },
+    },
 
   delete: function(req, res){
     knex('pokemon')
