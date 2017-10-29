@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add A Pokemon</title>
+    <title><%= trainerName.name %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -24,13 +24,14 @@
     </nav>
      
 <div class = "main">
+  <div class="row col s12"> </div>
     <div class = "selection">
         <div class = "container white"> 
             <h1>Trainer: <%= trainerName.name %></h1>
             <table class="bordered white">
                 <thead>
                     <tr>
-                        <th>Trainer</th>
+                        <th>Pokemon</th>
                         <th>Combat Power</th>
                         <th>In Gym</th>
                     </tr>
