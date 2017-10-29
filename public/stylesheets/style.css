@@ -7,7 +7,6 @@
     padding: 0px;
 };
 
-.title{    
-    color: white;
-};
-
+html{
+    color: white !important;
+}

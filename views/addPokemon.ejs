@@ -14,7 +14,7 @@
 <body>
     <nav class = "nav">
       <div class="nav-wrapper yellow darken-2">
-        <a href="#" class="brand-logo"><img class="pokemon-logo-image" src="../images/pokemon-logo.png"></a>
+        <a href="/" class="brand-logo"><img class="pokemon-logo-image" src="../images/pokemon-logo.png"></a>
         <ul id="navText" class="right hide-on-med-and-down">
         <li><a href="/trainers">TRAINERS</a></li>
         <li><a href="/">POKEMON</a></li>
@@ -22,12 +22,14 @@
         </ul>
       </div>
     </nav>
+    
 <div class = "main">
-    <div class = "selection">
-        <div class = "container"> 
+  <div class="row col s12"> </div>
+    <div class = "selection white">
+        <div class = "container "> 
             <h1>Add A Pokemon</h1>
         <div class="row">
-            <form action="/pokemon/add" method="post" class="col s12 white">
+            <form action="/pokemon/add" method="post" class="col s12">
                 <input type="text" name="name" placeholder="Pokemon Name">
                 <input type="number" name="trainer_id" placeholder="1-4">
                 <input type="number" name="cp" placeholder="CP">
